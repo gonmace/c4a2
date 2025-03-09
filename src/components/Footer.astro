@@ -13,10 +13,10 @@ const services: Service[] = [
 ];
 ---
 
-<footer class="p-4 bg-dark sm:p-6">
+<footer class="p-4 bg-neutral sm:p-6">
   <div class="md:flex md:justify-between">
     <div class="mb-6 md:mb-0 px-6">
-      <a href="/" class="flex flex-col lg:flex-row items-center text-brand-light">
+      <a href="/" class="flex flex-col lg:flex-row items-center text-white">
         <svg xmlns="http://www.w3.org/2000/svg" class="w-16 mx-auto sombra-x2" viewBox="0 0 150 110">
           <circle cx="49.8" cy="49.8" r="49" fill="none" stroke="currentColor" stroke-width="4"/>
           <circle cx="109.8" cy="49.8" r="35" fill="none" stroke="currentColor" stroke-width="4"/>
@@ -27,8 +27,8 @@ const services: Service[] = [
     </div>
     <div class="grid grid-cols-2 gap-8 sm:gap-10 sm:grid-cols-3">
       <div>
-        <h2 class="mb-6 text-sm text-darkAccent uppercase">Servicios</h2>
-        <ul class="text-brand-light">
+        <h2 class="mb-6 text-sm text-accent uppercase">Servicios</h2>
+        <ul class="text-base-300">
           {services.map((service) => (
             <li class="mb-4">
               <a href={service.url} class="hover:underline">{service.title}</a>
@@ -37,8 +37,8 @@ const services: Service[] = [
         </ul>
       </div>
       <div>
-        <h2 class="mb-6 text-sm text-darkAccent uppercase">Organización</h2>
-        <ul class="text-brand-light">
+        <h2 class="mb-6 text-sm text-accent uppercase">Organización</h2>
+        <ul class="text-base-300">
           <li class="mb-4">
             <a href="/nosotros" class="hover:underline">Sobre nosotros</a>
           </li>
@@ -48,8 +48,8 @@ const services: Service[] = [
         </ul>
       </div>
       <div>
-        <h2 class="mb-6 text-sm text-darkAccent uppercase dark:text-white">Legal</h2>
-        <ul class="text-brand-light">
+        <h2 class="mb-6 text-sm text-accent uppercase">Legal</h2>
+        <ul class="text-base-300">
           <li class="mb-4">
             <a href="/privacidad" class="hover:underline">Política de Privacidad</a>
           </li>
@@ -62,7 +62,7 @@ const services: Service[] = [
   </div>
   <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8">
   <div class="sm:flex sm:items-center sm:justify-between">
-    <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">
+    <span class="text-sm text-white sm:text-center">
       © {currentYear} <a href="/" class="hover:underline">magoreal™</a>. Todos los derechos reservados.
     </span>
   </div>
