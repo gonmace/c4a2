@@ -66,16 +66,10 @@
     h5 { @apply text-lg sm:text-xl }
     p { @apply text-base sm:text-lg }
 
-    /* Elementos de formulario */
-    form li { @apply mb-6 list-none }
-    form label { @apply block mb-2 text-base font-medium text-gray-900 dark:text-gray-300 uppercase }
-    form input { @apply bg-gray-50 border border-gray-300 text-gray-900 text-base rounded-lg focus:border-red-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white }
-    form span { @apply mt-2 text-sm dark:text-gray-500 }
-    form button { @apply inline-block w-full px-5 py-3 font-semibold tracking-wider text-center rounded-lg dark:bg-yellow-500 dark:text-gray-900 uppercase }
-    form select { @apply bg-gray-50 border border-gray-300 text-gray-900 text-base rounded-lg focus:border-red-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white }
+    
 
     /* Otros elementos base */
-    hr { @apply my-4 !bg-black }
+    /* hr { @apply my-4 !bg-black } */
     .bg-logo { @apply bg-[url(/bg.svg)] }
 }
 
