@@ -205,6 +205,7 @@ import Layout from '../layouts/Layout.astro';
 </Layout> 
 
 <script>
+
 // Importaciones
 import anime from "animejs";
 import Rellax from "rellax";
@@ -220,29 +221,24 @@ document.addEventListener("DOMContentLoaded", function () {
   let navChange = false;
   const navHeight = navbar.height() || 0;
 
-  console.log("============");
-  console.log("============");
   window.addEventListener('scroll', () => {
     effectsHomeSection(homeSection, window);
   });
 
   function effectsHomeSection(homeSection: JQuery<HTMLElement>, scrollTopp: any): void {
-	console.log("============");
-	console.log(homeSection);
-	console.log(scrollTopp);
-	console.log("============");
 	
     if (homeSection.length > 0) {
+	
       const homeSHeight = homeSection.height() || 0;
-
+		
       if (homeSHeight - navHeight <= $(scrollTopp).scrollTop()!) {
         if (!navChange) {
-          navbar.addClass("bg-primary");
+          navbar.addClass("!bg-primary");
           navChange = true;
         }
       } else {
         if (navChange) {
-          navbar.removeClass("bg-brand");
+          navbar.removeClass("!bg-primary");
           navChange = false;
         }
       }
