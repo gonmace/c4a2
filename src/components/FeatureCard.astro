@@ -8,7 +8,6 @@ interface Props {
 }
 
 const { title, imageUrl, imageAlt, description, reverseLayout = false } = Astro.props;
-const modalId = `modal_${title.toLowerCase().replace(/\s+/g, '_')}`;
 ---
 
 <div class="flex flex-wrap md:mb-0 mb-10 card-objetivo group">
@@ -16,7 +15,7 @@ const modalId = `modal_${title.toLowerCase().replace(/\s+/g, '_')}`;
     <div class="flex flex-col justify-center h-full w-3/4 lg:w-1/2 mx-auto transform transition-transform duration-500 group-hover:translate-x-4">
       <h2 
         class="uppercase cursor-pointer text-primary text-3xl lg:text-4xl font-light tracking-wider hover:text-secondary transition-colors duration-300"
-        onclick={`${modalId}.showModal()`}
+        data-toggle=`description-${title}`
       >
         {title}
       </h2>
@@ -26,8 +25,8 @@ const modalId = `modal_${title.toLowerCase().replace(/\s+/g, '_')}`;
   
   <div class={`relative w-full md:w-1/2 ${reverseLayout ? 'md:-order-1' : ''} overflow-hidden`}>
     <div 
-      class="w-full h-120 cursor-pointer transform transition-transform duration-700 group-hover:scale-105"
-      onclick={`${modalId}.showModal()`}
+      class="relative w-full h-120 cursor-pointer"
+      data-toggle=`description-${title}`
     >
       <div class={`absolute top-0 left-0 w-full h-full object-cover bg-gradient-to-${reverseLayout ? 'l' : 'r'} from-primary/30 to-transparent z-10`}></div>
       <img 
@@ -35,24 +34,31 @@ const modalId = `modal_${title.toLowerCase().replace(/\s+/g, '_')}`;
         src={imageUrl}
         width="600" 
         height="480"
-        class="top-0 left-0 h-full w-full object-cover"
+        class="top-0 left-0 h-full w-full object-cover transition-transform duration-700 hover:scale-105"
       />
-    </div>
-  </div>
-
-  <!-- Modal -->
-  <dialog id={modalId} class="modal modal-bottom sm:modal-middle">
-    <div class="modal-box bg-white">
-      <h3 class="text-2xl text-primary mb-4">{title}</h3>
-      <p class="py-4">{description}</p>
-      <div class="modal-action">
-        <form method="dialog">
-          <button class="btn btn-primary">Cerrar</button>
-        </form>
+      <!-- Contenedor del texto descriptivo -->
+      <div id =`description-${title}`
+        class="description-overlay absolute bottom-0 left-0 w-full bg-white/95 p-6 transform translate-y-full transition-transform duration-500 ease-in-out">
+        <h3 class="text-2xl text-primary mb-4">{title}</h3>
+        <p class="text-gray-700">{description}</p>
       </div>
     </div>
-    <form method="dialog" class="modal-backdrop">
-      <button>cerrar</button>
-    </form>
-  </dialog>
-</div> 
+  </div>
+</div>
+
+<script define:vars={{ title }}>
+  document.addEventListener('DOMContentLoaded', () => {
+    
+    const description = document.getElementById(`description-${title}`);
+    const toggleElements = document.querySelectorAll(`[data-toggle="description-${title}"]`);
+
+    toggleElements.forEach(element => {
+      element.addEventListener('click', () => {
+        console.log('click', title);
+        description.classList.toggle("translate-y-0");
+        description.classList.toggle("translate-y-full");
+
+      });
+    });
+  });
+</script> 
