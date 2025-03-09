@@ -1,5 +1,11 @@
 ---
 import "../styles/global.css";
+import LanguagePicker from "./LanguagePicker.astro";
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
 interface Props {
   class?: string;
   navShadow?: string;
@@ -24,7 +30,7 @@ const { class: className = "", navShadow = "" } = Astro.props;
           </div>
         </a>
       </div>
-      
+      <LanguagePicker />
       <button class="relative flex items-center p-1" id="menuButton">
         <div class="menu-icon sombra h-12 w-12 border-2 rounded-md border-white">
           <span class="bg-white before:bg-white after:bg-white"></span>
@@ -34,42 +40,37 @@ const { class: className = "", navShadow = "" } = Astro.props;
     </div>
   </nav>
 
-  <section class="overlay-menu bg-dark text-light">
-    <div class="container mx-auto">
-      <div class="row">
-        <div class="main-menu">
-          <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/servicios">Who We Are</a></li>
-            <li><a href="/blog">Services</a></li>
-            <li><a href="/contacto">Contact</a></li>
-          </ul>
-          <p class="text-center text-gray-400">Driving innovation, bridging connections, and empowering communities for a sustainable future.</p>
-        </div>
-      </div>
+  <!-- Menú overlay -->
+  <div class="overlay-menu">
+    <div class="main-menu">
+      <ul>
+        <li>
+          <a href="/">{t('nav.home')}</a>
+        </li>
+        <li>
+          <a href="/quienes-somos">{t('nav.wwa')}</a>
+        </li>
+        <li>
+          <a href="/servicios">{t('nav.services')}</a>
+        </li>
+        <li>
+          <a href="/contacto">{t('nav.contact')}</a>
+        </li>
+      </ul>
     </div>
-  </section>
+  </div>
 </header>
 
 <script>
-  const menuButton = document.getElementById('menuButton');
-  const overlayMenu = document.querySelector('.overlay-menu');
-  const header = document.querySelector('header');
-  const nav = document.querySelector('nav');
+  document.addEventListener('DOMContentLoaded', () => {
+    const menuButton = document.getElementById('menuButton');
+    const menuIcon = menuButton?.querySelector('.menu-icon');
+    const overlayMenu = document.querySelector('.overlay-menu');
 
-  menuButton?.addEventListener('click', () => {
-    menuButton.querySelector('.menu-icon')?.classList.toggle('active');
-    overlayMenu?.classList.toggle('open');
-    
-    if (header) {
-      if (!header.classList.contains('dark')) {
-        header.classList.add('dark');
-        nav?.classList.remove('!bg-primary');
-      } else if (!overlayMenu?.classList.contains('open')) {
-        header.classList.remove('dark');
-        nav?.classList.add('!bg-primary');
-      }
-    }
+    menuButton?.addEventListener('click', () => {
+      menuIcon?.classList.toggle('active');
+      overlayMenu?.classList.toggle('open');
+    });
   });
 </script>
 
