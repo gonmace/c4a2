@@ -109,6 +109,7 @@
     .imgBanner { @apply absolute bg-cover bg-center bg-no-repeat h-full w-full }
 }
 
+
 /* ==========================================================================
    Efectos y Sombras
    ========================================================================== */
@@ -139,6 +140,11 @@
 @layer utilities {
     .video { 
         @apply absolute top-0 left-0 w-full h-full object-cover 
+    }
+
+    .glass {
+        @apply bg-gray-100/1;
+        @apply backdrop-filter backdrop-blur-xs;
     }
 }
 

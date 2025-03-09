@@ -12,7 +12,7 @@ import Layout from '../layouts/Layout.astro';
   description="Descripción de tu sitio web"
 >
 <Header class="mx-auto w-full z-50 text-white" />
-<main class="z-0 overflow-x-hidden">
+<main class="z-0 overflow-x-hidden mx-auto">
 
 	<!-- Banner -->
 	  <section id="banner" class="min-h-screen z-0 rellax overflow-y-hidden">
@@ -59,7 +59,7 @@ import Layout from '../layouts/Layout.astro';
 		<!-- Fin video -->
 	  </section>
 
-	  <section class="bg-logo z-10">
+	  <section class="z-10 max-w-6xl mx-auto">
 		<!-- Who we are? -->
 		<div class="lg:container md:px-10 mx-auto items-center z-10">
 	  
@@ -220,17 +220,24 @@ document.addEventListener("DOMContentLoaded", function () {
   let navChange = false;
   const navHeight = navbar.height() || 0;
 
-  $(window).scroll(function () {
-    effectsHomeSection(homeSection, this);
+  console.log("============");
+  console.log("============");
+  window.addEventListener('scroll', () => {
+    effectsHomeSection(homeSection, window);
   });
 
   function effectsHomeSection(homeSection: JQuery<HTMLElement>, scrollTopp: any): void {
+	console.log("============");
+	console.log(homeSection);
+	console.log(scrollTopp);
+	console.log("============");
+	
     if (homeSection.length > 0) {
       const homeSHeight = homeSection.height() || 0;
 
       if (homeSHeight - navHeight <= $(scrollTopp).scrollTop()!) {
         if (!navChange) {
-          navbar.addClass("bg-brand");
+          navbar.addClass("bg-primary");
           navChange = true;
         }
       } else {
@@ -300,4 +307,7 @@ document.addEventListener("DOMContentLoaded", function () {
     duration: 3000
   },"-=2000");
 });
+
+
+
 </script>
