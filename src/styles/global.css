@@ -1,0 +1,189 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import "tailwindcss";
+
+@theme {
+    --font-poppins: "Poppins"; 
+  }
+
+@plugin "daisyui" {
+  themes: light --default, dark --prefersdark;
+}
+
+/* ==========================================================================
+   Tema Commons4All
+   ========================================================================== */
+@plugin "daisyui/theme" {
+  name: "commons4all-light";
+  default: true;
+  color-scheme: light;
+  font-family: var(--font-poppins);
+  /* Colores principales */
+  --color-primary: #0070B8;
+  --color-primary-content: white;
+  --color-secondary: #B03F5B;
+  --color-secondary-content: white;
+  --color-accent: #DA8276;
+  --color-accent-content: black;
+  --color-neutral: #2D304E;
+  --color-neutral-content: #F2F0F2;
+  
+  /* Colores de fondo */
+  --color-base-100: #F2F0F2;
+  --color-base-200: #E9E8E9;
+  --color-base-300: #DEDDDD;
+  --color-base-content: #2D304E;
+
+  /* Colores de estado */
+  --color-info: #3ABFF8;
+  --color-info-content: #F2F0F2;
+  --color-success: #36D399;
+  --color-success-content: #F2F0F2;
+  --color-warning: #FBBD23;
+  --color-warning-content: #F2F0F2;
+  --color-error: #F87272;
+  --color-error-content: #F2F0F2;
+  
+  /* Bordes y efectos */
+  --radius-box: 0.5rem;
+  --radius-field: 0.25rem;
+  --radius-selector: 1rem;
+  --size-field: 0.25rem;
+  --size-selector: 0.25rem;
+  --border: 1px;
+  --depth: 1;
+  --noise: 0;
+}
+
+/* ==========================================================================
+   Estilos Base
+   ========================================================================== */
+@layer base {
+    /* Tipografía */
+    h1 { @apply text-3xl sm:text-4xl }
+    h2 { @apply text-3xl sm:text-4xl }
+    h3 { @apply text-xl sm:text-2xl }
+    h4 { @apply text-lg sm:text-xl }
+    h5 { @apply text-lg sm:text-xl }
+    p { @apply text-base sm:text-lg }
+
+    /* Elementos de formulario */
+    form li { @apply mb-6 list-none }
+    form label { @apply block mb-2 text-base font-medium text-gray-900 dark:text-gray-300 uppercase }
+    form input { @apply bg-gray-50 border border-gray-300 text-gray-900 text-base rounded-lg focus:border-red-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white }
+    form span { @apply mt-2 text-sm dark:text-gray-500 }
+    form button { @apply inline-block w-full px-5 py-3 font-semibold tracking-wider text-center rounded-lg dark:bg-yellow-500 dark:text-gray-900 uppercase }
+    form select { @apply bg-gray-50 border border-gray-300 text-gray-900 text-base rounded-lg focus:border-red-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white }
+
+    /* Otros elementos base */
+    hr { @apply my-4 !bg-black }
+    .bg-logo { @apply bg-[url(/bg.svg)] }
+}
+
+/* ==========================================================================
+   Componentes
+   ========================================================================== */
+@layer components {
+    /* Navegación */
+    .navShadow {
+        box-shadow: 0px 2px 10px 0px rgba(0,0,0,0.5);
+    }
+
+    /* Lista de servicios */
+    #list_serv div > div > p { @apply mt-3 }
+    #list_serv div > div > ul > li { @apply ml-6 list-disc text-lg mt-1 }
+
+    /* Efectos de hover */
+    .serviciosHover { @apply transition duration-500 hover:scale-105 hover:brightness-100 }
+    .filtro { @apply grayscale-[30%] brightness-50 }
+
+    /* Posicionamiento */
+    .centrear { @apply absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 }
+    .centrearDiv { @apply h-screen flex justify-center items-center }
+    .centerAbs { @apply top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 }
+
+    /* Estados */
+    .active { @apply text-accent }
+
+    /* Banners e imágenes */
+    .titulos { @apply font-bold absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-4xl md:text-5xl text-center leading-none uppercase }
+    .imgBanner { @apply absolute bg-cover bg-center bg-no-repeat h-full w-full }
+}
+
+/* ==========================================================================
+   Efectos y Sombras
+   ========================================================================== */
+/* Sombras */
+.sombraBlanca {
+    -webkit-filter: drop-shadow(3px 3px 2px rgba(255, 255, 255, .8));
+    filter: drop-shadow(3px 3px 2px rgba(255, 255, 255, .8));
+}
+
+.sombra {
+    -webkit-filter: drop-shadow(3px 3px 2px rgba(0, 0, 0, .7));
+    filter: drop-shadow(3px 3px 2px rgba(0, 0, 0, .7));
+}
+
+.sombra-x2 {
+    -webkit-filter: drop-shadow(6px 6px 4px rgba(0, 0, 0, .7));
+    filter: drop-shadow(6px 6px 4px rgba(0, 0, 0, .7));
+}
+
+.sombraBlanca-x2 {
+    -webkit-filter: drop-shadow(6px 6px 4px rgba(255, 255, 255, .7));
+    filter: drop-shadow(6px 6px 4px rgba(255, 255, 255, .7));
+}
+
+/* ==========================================================================
+   Utilidades
+   ========================================================================== */
+@layer utilities {
+    .video { 
+        @apply absolute top-0 left-0 w-full h-full object-cover 
+    }
+}
+
+/* ==========================================================================
+   Animaciones y Transiciones
+   ========================================================================== */
+/* Animaciones de texto */
+.text-objetivo h1 {
+    transition: .5s ease-in-out;
+    letter-spacing: 0.5px;
+}
+
+.text-objetivo h2 {
+    transition: .5s ease-in-out;
+}
+
+/* Efectos hover */
+.card-objetivo:hover h1 {
+    transform: translateY(0);
+}
+
+.card-objetivo:hover h2 {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* Gradientes */
+.gradiente {
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.90), transparent);
+}
+
+/* ==========================================================================
+   Clases no utilizadas (comentadas)
+   ========================================================================== */
+/* 
+.htCenter { @apply text-center }
+.htRight { @apply text-right pr-8 }
+.htLeft { @apply text-left pl-8 }
+.btn-readMore { @apply btn btn-primary }
+.masonry-3-col { column-count: 3 }
+.masonry-2-col { column-count: 2 }
+.break-inside { break-inside: avoid }
+.responsive-object { @apply relative }
+.frameCard { @apply max-w-sm mx-auto bg-white rounded-lg shadow-lg }
+*/
+
+
+

@@ -1,0 +1,154 @@
+---
+import "../styles/global.css";
+interface Props {
+  class?: string;
+  navShadow?: string;
+}
+
+const { class: className = "", navShadow = "" } = Astro.props;
+---
+
+<header class={className}>
+  <nav class="h-20 navShadow lg:px-20 px-4 flex justify-between fixed w-full top-0 z-50">
+    <div class="my-auto text-3xl tracking-wide">
+      <a href="/">
+        <div class="flex justify-center">
+          <!-- Logotipo -->
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-16 mr-3 sombra" viewBox="-5 -5 160 110">
+            <circle cx="49.8" cy="49.8" r="49" fill="none" stroke="currentColor" stroke-width="4"/>
+            <circle cx="109.8" cy="49.8" r="35" fill="none" stroke="currentColor" stroke-width="4"/>
+            <path stroke="currentColor" stroke-width="4" d="m84 26 12 7m-17 0 19 12M78 64l15 9M75 52l21 13M76 42l23 13"/>
+          </svg>
+          <span class="hidden md:inline-block sombra pt-1">commons4all</span>
+        </div>
+      </a>
+    </div>
+    <div class="my-auto flex">
+      <button class="relative flex items-center p-1" id="menuButton">
+        <div class="menu-icon sombra h-12 w-12 border-2 rounded-md border-white">
+          <span class="bg-white before:bg-white after:bg-white"></span>
+          <span class=""></span>
+        </div>
+      </button>
+    </div>
+  </nav>
+
+  <section class="overlay-menu bg-dark text-light">
+    <div class="container mx-auto">
+      <div class="row">
+        <div class="main-menu">
+          <ul>
+            <li><a href="/">Inicio</a></li>
+            <li><a href="/servicios">Servicios</a></li>
+            <li><a href="/blog">Blog</a></li>
+            <li><a href="/contacto">Contacto</a></li>
+          </ul>
+          <p>We create for you.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</header>
+
+<script>
+  const menuButton = document.getElementById('menuButton');
+  const overlayMenu = document.querySelector('.overlay-menu');
+  const header = document.querySelector('header');
+
+  menuButton?.addEventListener('click', () => {
+    menuButton.querySelector('.menu-icon')?.classList.toggle('active');
+    overlayMenu?.classList.toggle('open');
+    
+    if (header) {
+      if (!header.classList.contains('dark')) {
+        header.classList.add('dark');
+      } else if (!overlayMenu?.classList.contains('open')) {
+        header.classList.remove('dark');
+      }
+    }
+  });
+</script>
+
+<style>
+  .menu-icon {
+    position: relative;
+    cursor: pointer;
+  }
+
+  .menu-icon span {
+    display: block;
+    position: absolute;
+    height: 2px;
+    width: 50%;
+    left: 25%;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: all 0.3s;
+  }
+
+  .menu-icon span::before,
+  .menu-icon span::after {
+    content: '';
+    position: absolute;
+    height: 2px;
+    width: 100%;
+    left: 0;
+    transition: all 0.3s;
+  }
+
+  .menu-icon span::before {
+    top: -8px;
+  }
+
+  .menu-icon span::after {
+    bottom: -8px;
+  }
+
+  .menu-icon.active span {
+    background: transparent;
+  }
+
+  .menu-icon.active span::before {
+    top: 0;
+    transform: rotate(45deg);
+  }
+
+  .menu-icon.active span::after {
+    bottom: 0;
+    transform: rotate(-45deg);
+  }
+
+  .overlay-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 40;
+  }
+
+  .overlay-menu.open {
+    display: flex;
+  }
+
+  .main-menu ul {
+    text-align: center;
+  }
+
+  .main-menu ul li {
+    margin: 20px 0;
+  }
+
+  .main-menu ul li a {
+    font-size: 24px;
+    transition: color 0.3s;
+  }
+
+  .main-menu ul li a:hover {
+    color: #4a90e2;
+  }
+</style> 

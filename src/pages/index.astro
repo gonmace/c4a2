@@ -1,11 +1,303 @@
 ---
-import Welcome from '../components/Welcome.astro';
+import "../styles/global.css";
+import Header from '../components/Header.astro';
 import Layout from '../layouts/Layout.astro';
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
-<Layout>
-	<Welcome />
-</Layout>
+<Layout 
+  title="Tu Sitio Web"
+  description="Descripción de tu sitio web"
+>
+<Header class="mx-auto w-full z-50 text-white" />
+<main class="z-0 overflow-x-hidden">
+
+	<!-- Banner -->
+	  <section id="banner" class="min-h-screen z-0 rellax overflow-y-hidden">
+		<div class="centrear z-30 text-white" >
+		  
+		  <div class="h-60 w-96 mx-auto rellax" data-rellax-speed="-4">
+			<svg id="izq" class="mix-blend-multiply fill-primary h-full w-full absolute sombra-x2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 100">
+				  <circle fill-opacity="0.2" stroke="#fff" cx="50" cy="50" r="49" stroke-width="1.5" />          
+			</svg>
+			<svg id="der" class="mix-blend-multiply fill-secondary h-full w-full absolute sombra-x2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 100">
+				  <circle fill-opacity="0.2" stroke="#fff" cx="110" cy="50" r="35" stroke-width="1.5" />
+			</svg>
+			<div class="centerar text-white">
+			  <div class="absolute top-1/2 -translate-y-1/2 text-3xl ml-5">
+				<span class="commons">commons</p>
+			  </div>
+			  <div class="absolute right-1/4 top-1/2 -translate-y-1/2 text-3xl">
+				<span class="all">all</p>
+			  </div>
+			  <div class="absolute left-1/2 top-1/2 -translate-y-1/2 text-5xl">
+				<span class="letter four">4</p>
+			  </div>
+			</div>
+			
+		  </div>
+	
+		  <h3 class="text-center text-light pt-4 rellax" data-rellax-speed="-4">
+			Mobilizing transformational ideas
+		  </h3>
+		  <div class="scroll-icon mt-12 rellax" data-rellax-speed="-4">
+			  <a class="scrollTo" data-scrollTo="portfolio" href="#">
+				<img class="mx-auto" src="#" alt="">
+				
+			  </a>
+		  </div>
+		</div>
+		  
+		<div class="absolute top-0 left-0 w-full h-full object-cover bg-primary/30 z-20"></div>
+
+		<!-- Video de fondo -->
+		<video class="video z-10" autoplay loop muted playsinline>
+			<source src="/videos/pexels-rodnae-productions-8083050.mp4" type="video/mp4">
+		</video>
+		<!-- Fin video -->
+	  </section>
+
+	  <section class="bg-logo z-10">
+		<!-- Who we are? -->
+		<div class="lg:container md:px-10 mx-auto items-center z-10">
+	  
+			<div class="flex flex-wrap pt-20 pb-12">      
+			  <div class="md:w-1/3">
+				<h2 class="text-primary border-l-4 border-secondary tracking-wider p-6 m-1 uppercase">We build on heritage through innovation</h2>
+			  </div>  
+			  <div class="md:w-2/3 px-6 flex">
+				<h4 class="m-auto">We are a network of experienced professionals from diverse backgrounds, leveraging technology, innovation, and collaboration to bridge critical gaps. Our mission is to develop tailored solutions that drive progress, stability, and resilience, while fostering common sense and honoring heritage, and building lasting relationships.</h4>
+			  </div>
+			</div>
+		</div>
+	  
+		<div class="divider mb-0"></div> 
+	  
+		<!-- FEATURES 1 Services -->
+		<div id="services">
+		  
+		  <div class="flex flex-wrap md:mb-0 mb-10 card-objetivo">
+	  
+			<div class="md:w-1/2 p-4">
+			  <div class="flex flex-col justify-center h-full md:w-3/4 lg:w-1/2 mx-auto">
+				<h2 class="uppercase cursor-pointer text-primary">Creativity</h2>
+				<div class="border-t-4 border-secondary w-24 my-3"></div>
+				<!-- <h4 class="md:w-9/12 pt-3"></h4> -->
+	  
+				<!-- solo para información del modal -->
+				<!-- <div class="hidden service-content"><div class="block-paragraph_block"><ol><li data-block-key="ghuax">Develop and foster legitimate, participatory transparent and efficient institutions that strengthen the rule of law, democracies and promote collaborative economy ventures,<i> private, public and social alliances aimed at collective well-being in the context of SDGs.</i></li><li data-block-key="9p7dl"><i>Foster local and social networks and institutions promoting dynamics of dialogue and consensus building process as a way to develop public policies and strengthen democracies.</i></li></ol></div></div> 
+				<div class="urlService hidden">/democracy-governance/</div> -->
+				<!-- solo para información del modal -->
+			  </div>
+			</div>
+			
+			<div class="relative w-full md:w-1/2 ">
+			  <div class="w-full h-120 cursor-pointer">
+				<div class="absolute top-0 left-0 w-full h-full object-cover bg-primary/30 z-10"></div>
+				<!-- <img alt="DALL·E 2023-02-07 22.53.06 -Diversidad" class=" top-0 left-0 h-full w-full object-cover " height="480" src="/media/images/DALLE_2023-02-07_22.53.06_-_Imag.height-480.format-webp.webp" width="480">     -->
+				<img 
+					alt="Creativity" 
+					src="/images/creativity.png"
+					width="600" 
+					height="480"
+					class="top-0 left-0 h-full w-full object-cover"
+					/>
+			  </div>
+			</div>
+		  </div>
+		
+		  <div class="flex flex-wrap md:mb-0 mb-10 card-objetivo">
+	  
+			<div class="md:w-1/2 p-4">
+			  <div class="flex flex-col justify-center h-full md:w-3/4 lg:w-1/2 mx-auto">
+				<h2 class="uppercase cursor-pointer text-primary">Connectivity</h2>
+				<div class="border-t-4 border-secondary w-24 my-3"></div>
+				<!-- <h4 class="md:w-9/12 pt-3"></h4> -->
+	  
+				<!-- solo para información del modal -->
+				<!-- <div class="hidden service-content"><div class="block-paragraph_block"><ol><li data-block-key="gqawl">Promote the development and implementation of policies and plans to strengthen community, social cooperative, and small, micro, and medium-sized enterprises, with a focus on circular economy, climate resilience, and artificial intelligence.</li><li data-block-key="d1765">Promote the development and implementation of energy transition policies, food production, environmental sustainability, health and water, natural resources and particularly for adaptation to climate change.</li></ol></div></div> 
+				<div class="urlService hidden">/law-policy/</div> -->
+				<!-- solo para información del modal -->
+			  </div>
+			</div>
+			
+			<div class="relative w-full md:w-1/2 md:-order-1">
+			  <div class="w-full h-120 cursor-pointer">
+				<div class="absolute top-0 left-0 w-full h-full object-cover bg-primary/30 z-10"></div>
+				<img 
+				alt="Connectivity" 
+				src="/images/connectivity.png"
+				width="600" 
+				height="480"
+				class="top-0 left-0 h-full w-full object-cover"
+				/>
+			  </div>
+			</div>
+		  </div>
+		
+		  <div class="flex flex-wrap md:mb-0 mb-10 card-objetivo">
+	  
+			<div class="md:w-1/2 p-4">
+			  <div class="flex flex-col justify-center h-full md:w-3/4 lg:w-1/2 mx-auto">
+				<h2 class="uppercase cursor-pointer text-primary">Collaboration</h2>
+				<div class="border-t-4 border-secondary w-24 my-3"></div>
+				<!-- <h4 class="md:w-9/12 pt-3"></h4> -->
+	  
+				<!-- solo para información del modal -->
+				<!-- <div class="hidden service-content"><div class="block-paragraph_block"><ol><li data-block-key="tpdd0">Promote the elaboration and implementation of policies for the construction of urban areas of life, configuring green cities, building green, productive cities, with decent employment, energy sustainable and resilient to climate change.</li><li data-block-key="allfm">Promote the development and implementation of policies that complement artificial intelligence technologies, technologies and local knowledge for the management of food resources and the production and trade of products in general, articulating and strengthening resilient production chains.</li></ol></div></div> 
+				<div class="urlService hidden">/environment/</div> -->
+				<!-- solo para información del modal -->
+			  </div>
+			</div>
+			
+			<div class="relative w-full md:w-1/2 ">
+			  <div class="w-full h-120 cursor-pointer">
+				<div class="absolute top-0 left-0 w-full h-full object-cover bg-primary/30 z-10"></div>
+				<img 
+				alt="Collaboration" 
+				src="/images/collaboration.png"
+				width="600" 
+				height="480"
+				class="top-0 left-0 h-full w-full object-cover"
+				/>
+			  </div>
+			</div>
+		  </div>
+		
+		  <div class="flex flex-wrap md:mb-0 mb-10 card-objetivo">
+	  
+			<div class="md:w-1/2 p-4">
+			  <div class="flex flex-col justify-center h-full md:w-3/4 lg:w-1/2 mx-auto">
+				<h2 class="uppercase cursor-pointer text-primary">Capacity building</h2>
+				<div class="border-t-4 border-secondary w-24 my-3"></div>
+				<!-- <h4 class="md:w-9/12 pt-3"></h4> -->
+	  
+				<!-- solo para información del modal -->
+				<!-- <div class="hidden service-content"><div class="block-paragraph_block"><ol><li data-block-key="ppmqq">Fostering local economies, building business and productive nets and alliances between small entrepreneurs, family agricultural unit, startups and fintech to develop the potentials of generating and strengthening employments as a way to disincentivize migration.</li><li data-block-key="fjgh5">Foster vulnerable communities, small and medium enterprises as well as small farmers, mainly women, children and youth, brings opportunities of creating and reinforcing employments and avoiding migration.</li></ol></div></div> 
+				<div class="urlService hidden">/migrations/</div> -->
+				<!-- solo para información del modal -->
+			  </div>
+			</div>
+			
+			<div class="relative w-full md:w-1/2 md:-order-1">
+			  <div class="w-full h-120 cursor-pointer">
+				<div class="absolute top-0 left-0 w-full h-full object-cover bg-primary/30 z-10"></div>
+				<img 
+				alt="Capacity building" 
+				src="/images/capacity_building2.png"
+				width="600" 
+				height="480"
+				class="top-0 left-0 h-full w-full object-cover"
+				/>
+			  </div>
+			</div>
+		  </div>
+		
+	  
+		</div>
+	  
+	  </section>
+
+	  
+  </main>
+</Layout> 
+
+<script>
+// Importaciones
+import anime from "animejs";
+import Rellax from "rellax";
+import jQuery from "jquery";
+const $ = jQuery;
+
+document.addEventListener("DOMContentLoaded", function () {
+  // Inicialización de Rellax
+  const rellax = new Rellax(".rellax");
+
+  const homeSection = $("#banner");
+  const navbar = $("nav");
+  let navChange = false;
+  const navHeight = navbar.height() || 0;
+
+  $(window).scroll(function () {
+    effectsHomeSection(homeSection, this);
+  });
+
+  function effectsHomeSection(homeSection: JQuery<HTMLElement>, scrollTopp: any): void {
+    if (homeSection.length > 0) {
+      const homeSHeight = homeSection.height() || 0;
+
+      if (homeSHeight - navHeight <= $(scrollTopp).scrollTop()!) {
+        if (!navChange) {
+          navbar.addClass("bg-brand");
+          navChange = true;
+        }
+      } else {
+        if (navChange) {
+          navbar.removeClass("bg-brand");
+          navChange = false;
+        }
+      }
+    }
+  }
+
+  // Animaciones con anime.js
+  const tl = anime.timeline({
+    easing: "easeOutExpo",
+  });
+
+  tl.add({
+    targets: "#izq",
+    translateX: ["-200%", 0],
+    duration: 4000,
+  });
+
+  tl.add(
+    {
+      targets: "#der",
+      translateX: ["200%", 0],
+      duration: 4000,
+    },
+    "-=4000"
+  );
+
+  const textcommons = document.querySelector('.commons');
+  const textall = document.querySelector('.all');
+
+  if (textcommons && textall) {
+    textcommons.innerHTML = textcommons.textContent?.replace(/\S/g, "<span class='letter'>$&</span>") || '';
+    textall.innerHTML = textall.textContent?.replace(/\S/g, "<span class='letter'>$&</span>") || '';
+  }
+
+  const tl2 = anime.timeline();
+  tl2.add({
+    targets: '.commons .letter',
+    translateX: [-400,0],
+    translateZ: 0,
+    opacity: [0,1],
+    easing: "easeOutExpo",
+    duration: 3500,
+    delay: (_el: any, i: number) => 500 - 60 * i
+  });
+
+  tl2.add({
+    targets: '.all .letter',
+    translateX: [+400,0],
+    translateZ: 0,
+    opacity: [0,1],
+    easing: "easeOutExpo",
+    duration: 3500,
+    delay: (_el: any, i: number) => -500 + 60 * i
+  }, "-=3500");
+
+  tl2.add({
+    targets: '.four',
+    translateZ: 0,
+    opacity: [0,1],
+    scale: [0,1],
+    easing: "easeOutExpo",
+    duration: 3000
+  },"-=2000");
+});
+</script>
