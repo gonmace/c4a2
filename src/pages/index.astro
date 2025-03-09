@@ -2,6 +2,7 @@
 import "../styles/global.css";
 import Header from '../components/Header.astro';
 import Layout from '../layouts/Layout.astro';
+import FeatureCard from '../components/FeatureCard.astro';
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
@@ -62,7 +63,7 @@ import Layout from '../layouts/Layout.astro';
 		<!-- Who we are? -->
 		<div class="lg:container mx-auto items-center z-10">
 	  
-			<div class="flex flex-wrap pt-32 pb-20">      
+			<div class="flex flex-wrap pt-32 pb-5">      
 			  <div class="md:w-1/3">
 				<h2 class="text-primary border-l-4 border-secondary tracking-wider p-6 m-1 uppercase text-2xl md:text-3xl font-light">We build on heritage through innovation</h2>
 			  </div>  
@@ -72,102 +73,36 @@ import Layout from '../layouts/Layout.astro';
 			</div>
 		</div>
 	  
-		<div class="divider mb-20 border-t border-gray-200/20"></div> 
+		<div class="divider mb-10 border-t border-gray-200/20"></div> 
 	  
 		<!-- FEATURES 1 Services -->
 		<div id="services" class="space-y-32">
 		  
-		  <div class="flex flex-wrap md:mb-0 mb-10 card-objetivo group">
-	  
-			<div class="md:w-1/2 p-8">
-			  <div class="flex flex-col justify-center h-full md:w-3/4 lg:w-1/2 mx-auto transform transition-transform duration-500 group-hover:translate-x-4">
-				<h2 class="uppercase cursor-pointer text-primary text-3xl md:text-4xl font-light tracking-wider">Creativity</h2>
-				<div class="border-t-4 border-secondary w-24 my-3 transition-all duration-500 group-hover:w-32"></div>
-			  </div>
-			</div>
-			
-			<div class="relative w-full md:w-1/2 overflow-hidden">
-			  <div class="w-full h-120 cursor-pointer transform transition-transform duration-700 group-hover:scale-105">
-				<div class="absolute top-0 left-0 w-full h-full object-cover bg-gradient-to-r from-primary/30 to-transparent z-10"></div>
-				<img 
-					alt="Creativity" 
-					src="/images/creativity.png"
-					width="600" 
-					height="480"
-					class="top-0 left-0 h-full w-full object-cover"
-					/>
-			  </div>
-			</div>
-		  </div>
-		
-		  <div class="flex flex-wrap md:mb-0 mb-10 card-objetivo group">
-	  
-			<div class="md:w-1/2 p-8">
-			  <div class="flex flex-col justify-center h-full md:w-3/4 lg:w-1/2 mx-auto transform transition-transform duration-500 group-hover:translate-x-4">
-				<h2 class="uppercase cursor-pointer text-primary text-3xl md:text-4xl font-light tracking-wider">Connectivity</h2>
-				<div class="border-t-4 border-secondary w-24 my-3 transition-all duration-500 group-hover:w-32"></div>
-			  </div>
-			</div>
-			
-			<div class="relative w-full md:w-1/2 md:-order-1 overflow-hidden">
-			  <div class="w-full h-120 cursor-pointer transform transition-transform duration-700 group-hover:scale-105">
-				<div class="absolute top-0 left-0 w-full h-full object-cover bg-gradient-to-l from-primary/30 to-transparent z-10"></div>
-				<img 
-				alt="Connectivity" 
-				src="/images/connectivity.png"
-				width="600" 
-				height="480"
-				class="top-0 left-0 h-full w-full object-cover"
-				/>
-			  </div>
-			</div>
-		  </div>
-		
-		  <div class="flex flex-wrap md:mb-0 mb-10 card-objetivo group">
-	  
-			<div class="md:w-1/2 p-8">
-			  <div class="flex flex-col justify-center h-full md:w-3/4 lg:w-1/2 mx-auto transform transition-transform duration-500 group-hover:translate-x-4">
-				<h2 class="uppercase cursor-pointer text-primary text-3xl md:text-4xl font-light tracking-wider">Collaboration</h2>
-				<div class="border-t-4 border-secondary w-24 my-3 transition-all duration-500 group-hover:w-32"></div>
-			  </div>
-			</div>
-			
-			<div class="relative w-full md:w-1/2 overflow-hidden">
-			  <div class="w-full h-120 cursor-pointer transform transition-transform duration-700 group-hover:scale-105">
-				<div class="absolute top-0 left-0 w-full h-full object-cover bg-gradient-to-r from-primary/30 to-transparent z-10"></div>
-				<img 
-				alt="Collaboration" 
-				src="/images/collaboration.png"
-				width="600" 
-				height="480"
-				class="top-0 left-0 h-full w-full object-cover"
-				/>
-			  </div>
-			</div>
-		  </div>
-		
-		  <div class="flex flex-wrap md:mb-0 mb-10 card-objetivo group">
-	  
-			<div class="md:w-1/2 p-8">
-			  <div class="flex flex-col justify-center h-full md:w-3/4 lg:w-1/2 mx-auto transform transition-transform duration-500 group-hover:translate-x-4">
-				<h2 class="uppercase cursor-pointer text-primary text-3xl md:text-4xl font-light tracking-wider">Capacity building</h2>
-				<div class="border-t-4 border-secondary w-24 my-3 transition-all duration-500 group-hover:w-32"></div>
-			  </div>
-			</div>
-			
-			<div class="relative w-full md:w-1/2 md:-order-1 overflow-hidden">
-			  <div class="w-full h-120 cursor-pointer transform transition-transform duration-700 group-hover:scale-105">
-				<div class="absolute top-0 left-0 w-full h-full object-cover bg-gradient-to-l from-primary/30 to-transparent z-10"></div>
-				<img 
-				alt="Capacity building" 
-				src="/images/capacity_building2.png"
-				width="600" 
-				height="480"
-				class="top-0 left-0 h-full w-full object-cover"
-				/>
-			  </div>
-			</div>
-		  </div>
+		  <FeatureCard
+        title="Creativity"
+        imageUrl="/images/creativity.png"
+        imageAlt="Creativity"
+      />
+    
+      <FeatureCard
+        title="Connectivity"
+        imageUrl="/images/connectivity.png"
+        imageAlt="Connectivity"
+        reverseLayout={true}
+      />
+    
+      <FeatureCard
+        title="Collaboration"
+        imageUrl="/images/collaboration.png"
+        imageAlt="Collaboration"
+      />
+    
+      <FeatureCard
+        title="Capacity building"
+        imageUrl="/images/capacity_building2.png"
+        imageAlt="Capacity building"
+        reverseLayout={true}
+      />
 		
 		</div>
 	  
