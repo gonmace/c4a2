@@ -1,0 +1,58 @@
+---
+import Layout from '../../layouts/MainLayout.astro';
+import Header from '../../components/Header.astro';
+import { getLangFromUrl, useTranslations } from '../../i18n/utils';
+import { languages } from '../../i18n/ui';
+import { getCollection, type CollectionEntry } from 'astro:content';
+
+export async function getStaticPaths() {
+  const servicesEntries = await getCollection('services');
+  return Object.keys(languages).map((lang) => {
+    const entry = servicesEntries.find((entry: CollectionEntry<'services'>) => entry.slug === lang);
+    return {
+      params: { locale: lang },
+      props: { entry }
+    };
+  });
+}
+
+interface Props {
+  entry: CollectionEntry<'services'>;
+}
+
+const { entry } = Astro.props;
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const { Content } = await entry.render();
+---
+
+<Layout 
+  title={t('nav.services')}
+  description="Services"
+>
+  <Header class="mx-auto w-full z-50" textColorNav="primary" />
+
+  <main class="pt-10">
+    <section class="mt-20 mb-12 bg-primary/10 max-w-6xl mx-auto">
+      <div class="container md:py-8 mx-auto sm:px-4">
+        <div class="flex flex-wrap">              
+          <div class="md:w-3/4 p-6">
+            <h1 class="text-primary uppercase border-l-4 border-secondary tracking-wider py-6 p-10">
+              {t('nav.services')}
+            </h1>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <article class="container px-2 lg:px-10 prose lg:prose-xl mx-auto max-w-5xl prose-headings:text-primary prose-headings:font-normal prose-headings:text-3xl">
+      <Content />
+    </article>
+  </main>
+</Layout>
+
+<style>
+  
+</style>
+

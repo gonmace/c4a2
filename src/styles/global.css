@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
 
 @theme {
     --font-poppins: "Poppins"; 
@@ -66,10 +67,7 @@
     h5 { @apply text-lg sm:text-xl }
     p { @apply text-base sm:text-lg }
 
-    
 
-    /* Otros elementos base */
-    /* hr { @apply my-4 !bg-black } */
     .bg-logo { @apply bg-[url(/bg.svg)] }
 }
 
@@ -169,21 +167,5 @@
 .gradiente {
     background: linear-gradient(to top, rgba(0, 0, 0, 0.90), transparent);
 }
-
-/* ==========================================================================
-   Clases no utilizadas (comentadas)
-   ========================================================================== */
-/* 
-.htCenter { @apply text-center }
-.htRight { @apply text-right pr-8 }
-.htLeft { @apply text-left pl-8 }
-.btn-readMore { @apply btn btn-primary }
-.masonry-3-col { column-count: 3 }
-.masonry-2-col { column-count: 2 }
-.break-inside { break-inside: avoid }
-.responsive-object { @apply relative }
-.frameCard { @apply max-w-sm mx-auto bg-white rounded-lg shadow-lg }
-*/
-
 
 

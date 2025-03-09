@@ -25,26 +25,42 @@ const { title, imageUrl, imageAlt, description, reverseLayout = false } = Astro.
   
   <div class={`relative w-full md:w-1/2 ${reverseLayout ? 'md:-order-1' : ''} overflow-hidden`}>
     <div 
-      class="relative w-full h-120 cursor-pointer"
+      class="relative w-full h-120 cursor-pointer transform transition-all duration-500 hover:scale-[1.02] group"
       data-toggle=`description-${title}`
     >
-      <div class={`absolute top-0 left-0 w-full h-full object-cover bg-gradient-to-${reverseLayout ? 'l' : 'r'} from-primary/30 to-transparent z-10`}></div>
+      <!-- Marco moderno -->
+      <div class="absolute inset-0 bg-gradient-to-r from-primary/20 to-secondary/20 rounded-2xl transform transition-all duration-500 group-hover:scale-105"></div>
+      
+      <!-- Sombra decorativa -->
+      <div class="absolute inset-0 shadow-lg rounded-2xl"></div>
+      
+      <!-- Overlay con gradiente -->
+      <div class={`absolute top-0 left-0 w-full h-full rounded-2xl bg-gradient-to-${reverseLayout ? 'l' : 'r'} from-primary/30 to-transparent z-10 transition-opacity duration-500 group-hover:opacity-70`}></div>
+      
+      <!-- Imagen -->
       <img 
         alt={imageAlt}
         src={imageUrl}
         width="600" 
         height="480"
-        class="top-0 left-0 h-full w-full object-cover transition-transform duration-700 hover:scale-105"
+        class="top-0 left-0 h-full w-full object-cover rounded-2xl transition-all duration-700 group-hover:scale-105"
       />
+      
       <!-- Contenedor del texto descriptivo -->
-      <div id =`description-${title}`
-        class="description-overlay absolute bottom-0 left-0 w-full bg-white/95 p-6 transform translate-y-full transition-transform duration-500 ease-in-out">
-        <h3 class="text-2xl text-primary mb-4">{title}</h3>
-        <p class="text-gray-700">{description}</p>
+      <div id=`description-${title}`
+        class="description-overlay absolute bottom-0 left-0 w-full bg-white/95 p-6 transform translate-y-full transition-transform duration-500 ease-in-out rounded-b-2xl backdrop-blur-sm">
+        <h3 class="text-2xl text-primary mb-4 font-medium">{title}</h3>
+        <p class="text-gray-700 leading-relaxed">{description}</p>
       </div>
     </div>
   </div>
 </div>
+
+<style>
+  .h-120 {
+    height: 30rem;
+  }
+</style>
 
 <script define:vars={{ title }}>
   document.addEventListener('DOMContentLoaded', () => {

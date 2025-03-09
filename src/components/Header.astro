@@ -8,14 +8,14 @@ const t = useTranslations(lang);
 
 interface Props {
   class?: string;
-  navShadow?: string;
+  textColorNav?: string;
 }
 
-const { class: className = "", navShadow = "" } = Astro.props;
+const { class: className = "", textColorNav = "white" } = Astro.props;
 ---
 
-<header class={className}>
-  <nav class="glass h-20 navShadow lg:px-20 px-4 flex justify-between fixed w-full top-0 z-50 transition-all duration-300">
+<header class={className + " " + "text-"+textColorNav}>
+  <nav class="glass h-20 lg:px-20 px-4 flex justify-between fixed w-full top-0 z-50 transition-all duration-300">
     <div class="max-w-7xl w-full mx-auto flex justify-between">
       <div class="my-auto text-3xl tracking-wide ">
           <a href="/">
@@ -30,35 +30,41 @@ const { class: className = "", navShadow = "" } = Astro.props;
           </div>
         </a>
       </div>
-      <LanguagePicker />
-      <button class="relative flex items-center p-1" id="menuButton">
-        <div class="menu-icon sombra h-12 w-12 border-2 rounded-md border-white">
-          <span class="bg-white before:bg-white after:bg-white"></span>
-          <span class=""></span>
-        </div>
-      </button>
+      <div class="relative flex items-center p-1">
+
+        <LanguagePicker class={textColorNav}/>
+        <button class="" id="menuButton">
+          <div class="menu-icon sombra h-12 w-12 border-2 rounded-md border-white">
+            <span class="bg-white before:bg-white after:bg-white"></span>
+            <span class=""></span>
+          </div>
+        </button>
+
+      </div>
     </div>
   </nav>
 
   <!-- Menú overlay -->
   <div class="overlay-menu">
-    <div class="main-menu">
+    <div class="main-menu text-white">
       <ul>
         <li>
-          <a href="/">{t('nav.home')}</a>
+          <a href={`/${lang}/`}>{t('nav.home')}</a>
         </li>
         <li>
-          <a href="/quienes-somos">{t('nav.wwa')}</a>
+          <a href={`/${lang}/wwa`}>{t('nav.wwa')}</a>
         </li>
         <li>
-          <a href="/servicios">{t('nav.services')}</a>
+          <a href={`/${lang}/services`}>{t('nav.services')}</a>
         </li>
         <li>
-          <a href="/contacto">{t('nav.contact')}</a>
+          <a href={`/${lang}/contact`}>{t('nav.contact')}</a>
         </li>
       </ul>
-    </div>
+      <p class="text-center text-gray-400 pt-10">{t('nav.slogan')}</p>
+    </div>    
   </div>
+  
 </header>
 
 <script>
@@ -156,6 +162,32 @@ const { class: className = "", navShadow = "" } = Astro.props;
 
   .main-menu ul li {
     margin: 20px 0;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.5s ease-in-out;
+    transition-delay: calc(var(--delay) * 0.1s);
+  }
+
+  .overlay-menu.open .main-menu ul li {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .main-menu ul li:nth-child(1) { --delay: 1; }
+  .main-menu ul li:nth-child(2) { --delay: 2; }
+  .main-menu ul li:nth-child(3) { --delay: 3; }
+  .main-menu ul li:nth-child(4) { --delay: 4; }
+
+  .main-menu p {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.5s ease-in-out;
+    transition-delay: 0.5s;
+  }
+
+  .overlay-menu.open .main-menu p {
+    opacity: 1;
+    transform: translateY(0);
   }
 
   .main-menu ul li a {

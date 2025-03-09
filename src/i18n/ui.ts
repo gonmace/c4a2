@@ -10,8 +10,9 @@ export const languages = {
       // Navigation
       'nav.home': 'Home',
       'nav.wwa': 'Who We Are',
-      'nav.services': 'Services',
+      'nav.services': 'Our Services',
       'nav.contact': 'Contact',
+      'nav.slogan': 'Driving innovation, bridging connections, and empowering communities for a sustainable future.',
       
       // Hero Section
       'hero.title': 'Mobilizing transformational ideas',
@@ -53,11 +54,12 @@ export const languages = {
       // Navegación
       'nav.home': 'Inicio',
       'nav.wwa': 'Quienes Somos',
-      'nav.services': 'Servicios',
+      'nav.services': 'Nuestros Servicios',
       'nav.contact': 'Contacto',
+      'nav.slogan': 'Impulsando ideas innovadoras, conectando comunidades y empoderando a las personas para un futuro sostenible.',
       
       // Sección Hero
-      'hero.title': 'Movilizando ideas transformadoras',
+      'hero.title': 'Impulsando ideas innovadoras',
       
       // Sección Quienes Somos
       'wwa.title': 'Construimos sobre el patrimonio a través de la innovación',
