@@ -1,6 +1,8 @@
 ---
 import Layout from '../../layouts/MainLayout.astro';
 import Header from '../../components/Header.astro';
+import FeatureCard from '../../components/FeatureCard.astro';
+import MissionVisionCard from '../../components/MissionVisionCard.astro';
 import { getLangFromUrl, useTranslations } from '../../i18n/utils';
 import { languages } from '../../i18n/ui';
 import { getCollection, type CollectionEntry } from 'astro:content';
@@ -25,6 +27,52 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
 const { Content } = await entry.render();
+
+const missionVision = [
+  {
+    icon: "fas fa-bullseye",
+    title: "Nuestra Misión",
+    description: "Somos una red de profesionales experimentados que impulsa ideas transformadoras para un cambio sostenible, conectando personas, sectores y conocimientos."
+  },
+  {
+    icon: "fas fa-eye",
+    title: "Nuestra Visión",
+    description: "Construir un futuro sostenible a través de la innovación, la colaboración y el intercambio de conocimientos entre diversos sectores."
+  }
+];
+
+const workAreas = [
+  {
+    icon: "fas fa-landmark",
+    title: "Gobernanza",
+    description: "Fortalecimiento de la gobernanza y la resiliencia institucional."
+  },
+  {
+    icon: "fas fa-chart-line",
+    title: "Desarrollo Económico",
+    description: "Desarrollo económico y tecnológico sostenible."
+  },
+  {
+    icon: "fas fa-users",
+    title: "Migración",
+    description: "Abordaje de los desafíos migratorios."
+  },
+  {
+    icon: "fas fa-heart",
+    title: "Salud",
+    description: "Políticas de salud y protección social."
+  },
+  {
+    icon: "fas fa-leaf",
+    title: "Agricultura",
+    description: "Agricultura inteligente y gestión del agua."
+  },
+  {
+    icon: "fas fa-laptop-code",
+    title: "Tecnología",
+    description: "Promoción de la innovación tecnológica y la transformación digital."
+  }
+];
 ---
 
 <Layout 
@@ -46,6 +94,30 @@ const { Content } = await entry.render();
       </div>
     </section>
 
+    <div class="container mx-auto px-4 max-w-6xl">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+        {missionVision.map(item => (
+          <MissionVisionCard
+            icon={item.icon}
+            title={item.title}
+            description={item.description}
+          />
+        ))}
+      </div>
+
+      <!-- Áreas de Trabajo -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+        {workAreas.map(area => (
+          <FeatureCard
+            icon={area.icon}
+            title={area.title}
+            description={area.description}
+          />
+        ))}
+      </div>
+
+    </div>
+
     <article class="container px-2 lg:px-10 prose lg:prose-xl mx-auto max-w-5xl prose-headings:text-primary prose-headings:font-normal prose-headings:text-3xl">
       <Content />
     </article>
@@ -53,6 +125,6 @@ const { Content } = await entry.render();
 </Layout>
 
 <style>
-  
+  @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css');
 </style>
 

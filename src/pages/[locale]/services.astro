@@ -1,6 +1,7 @@
 ---
 import Layout from '../../layouts/MainLayout.astro';
 import Header from '../../components/Header.astro';
+import FeatureCard from '../../components/FeatureCard.astro';
 import { getLangFromUrl, useTranslations } from '../../i18n/utils';
 import { languages } from '../../i18n/ui';
 import { getCollection, type CollectionEntry } from 'astro:content';
@@ -25,6 +26,39 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
 const { Content } = await entry.render();
+
+const services = [
+  {
+    icon: "fas fa-calendar-alt",
+    title: t('footer.services.1'),
+    description: "Organizamos talleres, conferencias y eventos de networking para fomentar la colaboración y el consenso entre diversos actores."
+  },
+  {
+    icon: "fas fa-handshake",
+    title: t('footer.services.2'),
+    description: "Brindamos asesoría técnica, legal y en políticas públicas a nivel internacional, regional y nacional."
+  },
+  {
+    icon: "fas fa-search",
+    title: t('footer.services.3'),
+    description: "Realizamos investigaciones, evaluaciones e informes orientados a la acción para impulsar el desarrollo sostenible."
+  },
+  {
+    icon: "fas fa-graduation-cap",
+    title: "Desarrollo de Capacidades",
+    description: "Diseñamos programas de formación para fortalecer capacidades locales a largo plazo."
+  },
+  {
+    icon: "fas fa-users",
+    title: "Alianzas Estratégicas",
+    description: "Creamos entornos propicios para alianzas estratégicas y asociaciones empresariales."
+  },
+  {
+    icon: "fas fa-cogs",
+    title: "Implementación",
+    description: "Acompañamos el diseño y ejecución de iniciativas de desarrollo y políticas públicas."
+  }
+];
 ---
 
 <Layout 
@@ -46,13 +80,25 @@ const { Content } = await entry.render();
       </div>
     </section>
 
-    <article class="container px-2 lg:px-10 prose lg:prose-xl mx-auto max-w-5xl prose-headings:text-primary prose-headings:font-normal prose-headings:text-3xl">
+    <div class="container mx-auto px-4 max-w-6xl">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {services.map(service => (
+          <FeatureCard
+            icon={service.icon}
+            title={service.title}
+            description={service.description}
+          />
+        ))}
+      </div>
+    </div>
+
+    <article class="container px-2 lg:px-10 prose lg:prose-xl mx-auto max-w-5xl prose-headings:text-primary prose-headings:font-normal prose-headings:text-3xl mt-12">
       <Content />
     </article>
   </main>
 </Layout>
 
 <style>
-  
+  @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css');
 </style>
 
