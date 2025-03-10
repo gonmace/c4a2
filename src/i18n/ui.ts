@@ -59,6 +59,26 @@ export const languages = {
       'contact.form.subject': 'Subject',
       'contact.form.message': 'Message',
       'contact.form.submit': 'Send Message',
+
+      // Mission Vision Cards
+      'mission.title': 'Our Mission',
+      'mission.description': 'We are a network of experienced professionals driving transformative ideas for sustainable change, connecting people, sectors, and knowledge.',
+      'vision.title': 'Our Vision',
+      'vision.description': 'Building a sustainable future through innovation, collaboration, and knowledge sharing across diverse sectors.',
+      
+      // Work Areas
+      'workareas.governance.title': 'Governance',
+      'workareas.governance.description': 'Strengthening governance and institutional resilience.',
+      'workareas.economic.title': 'Economic Development',
+      'workareas.economic.description': 'Sustainable economic and technological development.',
+      'workareas.migration.title': 'Migration',
+      'workareas.migration.description': 'Addressing migration challenges.',
+      'workareas.health.title': 'Health',
+      'workareas.health.description': 'Health policies and social protection.',
+      'workareas.agriculture.title': 'Agriculture',
+      'workareas.agriculture.description': 'Smart agriculture and water management.',
+      'workareas.technology.title': 'Technology',
+      'workareas.technology.description': 'Promoting technological innovation and digital transformation.',
     },
     es: {
       // Navegación
@@ -113,5 +133,25 @@ export const languages = {
       'contact.form.subject': 'Asunto',
       'contact.form.message': 'Mensaje',
       'contact.form.submit': 'Enviar mensaje',
+
+      // Tarjetas de Misión Visión
+      'mission.title': 'Nuestra Misión',
+      'mission.description': 'Somos una red de profesionales experimentados que impulsa ideas transformadoras para un cambio sostenible, conectando personas, sectores y conocimientos.',
+      'vision.title': 'Nuestra Visión',
+      'vision.description': 'Construir un futuro sostenible a través de la innovación, la colaboración y el intercambio de conocimientos entre diversos sectores.',
+      
+      // Áreas de Trabajo
+      'workareas.governance.title': 'Gobernanza',
+      'workareas.governance.description': 'Fortalecimiento de la gobernanza y la resiliencia institucional.',
+      'workareas.economic.title': 'Desarrollo Económico',
+      'workareas.economic.description': 'Desarrollo económico y tecnológico sostenible.',
+      'workareas.migration.title': 'Migración',
+      'workareas.migration.description': 'Abordaje de los desafíos migratorios.',
+      'workareas.health.title': 'Salud',
+      'workareas.health.description': 'Políticas de salud y protección social.',
+      'workareas.agriculture.title': 'Agricultura',
+      'workareas.agriculture.description': 'Agricultura inteligente y gestión del agua.',
+      'workareas.technology.title': 'Tecnología',
+      'workareas.technology.description': 'Promoción de la innovación tecnológica y la transformación digital.',
     }
   } as const;

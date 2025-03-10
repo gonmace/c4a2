@@ -4,8 +4,22 @@ import Header from '../../components/Header.astro';
 import FeatureCard from '../../components/FeatureCard.astro';
 import MissionVisionCard from '../../components/MissionVisionCard.astro';
 import { getLangFromUrl, useTranslations } from '../../i18n/utils';
-import { languages } from '../../i18n/ui';
+import { languages, ui } from '../../i18n/ui';
 import { getCollection, type CollectionEntry } from 'astro:content';
+
+type TranslationKey = keyof typeof ui.en;
+
+interface MissionVisionItem {
+  icon: string;
+  titleKey: TranslationKey;
+  descriptionKey: TranslationKey;
+}
+
+interface WorkAreaItem {
+  icon: string;
+  titleKey: TranslationKey;
+  descriptionKey: TranslationKey;
+}
 
 export async function getStaticPaths() {
   const wwaEntries = await getCollection('wwa');
@@ -28,49 +42,49 @@ const t = useTranslations(lang);
 
 const { Content } = await entry.render();
 
-const missionVision = [
+const missionVision: MissionVisionItem[] = [
   {
     icon: "fas fa-bullseye",
-    title: "Nuestra Misión",
-    description: "Somos una red de profesionales experimentados que impulsa ideas transformadoras para un cambio sostenible, conectando personas, sectores y conocimientos."
+    titleKey: "mission.title",
+    descriptionKey: "mission.description"
   },
   {
     icon: "fas fa-eye",
-    title: "Nuestra Visión",
-    description: "Construir un futuro sostenible a través de la innovación, la colaboración y el intercambio de conocimientos entre diversos sectores."
+    titleKey: "vision.title",
+    descriptionKey: "vision.description"
   }
 ];
 
-const workAreas = [
+const workAreas: WorkAreaItem[] = [
   {
     icon: "fas fa-landmark",
-    title: "Gobernanza",
-    description: "Fortalecimiento de la gobernanza y la resiliencia institucional."
+    titleKey: "workareas.governance.title",
+    descriptionKey: "workareas.governance.description"
   },
   {
     icon: "fas fa-chart-line",
-    title: "Desarrollo Económico",
-    description: "Desarrollo económico y tecnológico sostenible."
+    titleKey: "workareas.economic.title",
+    descriptionKey: "workareas.economic.description"
   },
   {
     icon: "fas fa-users",
-    title: "Migración",
-    description: "Abordaje de los desafíos migratorios."
+    titleKey: "workareas.migration.title",
+    descriptionKey: "workareas.migration.description"
   },
   {
     icon: "fas fa-heart",
-    title: "Salud",
-    description: "Políticas de salud y protección social."
+    titleKey: "workareas.health.title",
+    descriptionKey: "workareas.health.description"
   },
   {
     icon: "fas fa-leaf",
-    title: "Agricultura",
-    description: "Agricultura inteligente y gestión del agua."
+    titleKey: "workareas.agriculture.title",
+    descriptionKey: "workareas.agriculture.description"
   },
   {
     icon: "fas fa-laptop-code",
-    title: "Tecnología",
-    description: "Promoción de la innovación tecnológica y la transformación digital."
+    titleKey: "workareas.technology.title",
+    descriptionKey: "workareas.technology.description"
   }
 ];
 ---
@@ -99,8 +113,8 @@ const workAreas = [
         {missionVision.map(item => (
           <MissionVisionCard
             icon={item.icon}
-            title={item.title}
-            description={item.description}
+            title={t(item.titleKey)}
+            description={t(item.descriptionKey)}
           />
         ))}
       </div>
@@ -110,8 +124,8 @@ const workAreas = [
         {workAreas.map(area => (
           <FeatureCard
             icon={area.icon}
-            title={area.title}
-            description={area.description}
+            title={t(area.titleKey)}
+            description={t(area.descriptionKey)}
           />
         ))}
       </div>
