@@ -36,9 +36,9 @@ export const languages = {
       
       // Footer
       'footer.services': 'Services',
-      'footer.services.web': 'Web Development',
-      'footer.services.uiux': 'UI/UX Design',
-      'footer.services.marketing': 'Digital Marketing',
+      'footer.services.1': 'Events',
+      'footer.services.2': 'Consulting',
+      'footer.services.3': 'Research',
       'footer.organization': 'Organization',
       'footer.about': 'About Us',
       'footer.contact': 'Contact',
@@ -90,9 +90,9 @@ export const languages = {
       
       // Pie de página
       'footer.services': 'Servicios',
-      'footer.services.web': 'Desarrollo Web',
-      'footer.services.uiux': 'Diseño UI/UX',
-      'footer.services.marketing': 'Marketing Digital',
+      'footer.services.1': 'Eventos',
+      'footer.services.2': 'Consultoría',
+      'footer.services.3': 'Investigación',
       'footer.organization': 'Organización',
       'footer.about': 'Sobre nosotros',
       'footer.contact': 'Contacto',

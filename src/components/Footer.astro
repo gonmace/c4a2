@@ -10,10 +10,11 @@ interface Service {
   url: string;
 }
 
+console.log(lang);
 const services: Service[] = [
-  { title: t('footer.services.web'), url: "/servicios/desarrollo-web" },
-  { title: t('footer.services.uiux'), url: "/servicios/diseno-ui-ux" },
-  { title: t('footer.services.marketing'), url: "/servicios/marketing-digital" }
+  { title: t('footer.services.1'), url: `/${lang}/services/` },
+  { title: t('footer.services.2'), url: `/${lang}/services/` },
+  { title: t('footer.services.3'), url: `/${lang}/services/` }
 ];
 ---
 
@@ -31,7 +32,7 @@ const services: Service[] = [
     </div>
     <div class="grid grid-cols-2 gap-8 sm:gap-10 sm:grid-cols-3">
       <div>
-        <h2 class="mb-6 text-sm text-accent uppercase">{t('footer.services')}</h2>
+        <h5 class="mb-6 text-accent uppercase">{t('footer.services')}</h5>
         <ul class="text-base-300">
           {services.map((service) => (
             <li class="mb-4">
@@ -41,24 +42,24 @@ const services: Service[] = [
         </ul>
       </div>
       <div>
-        <h2 class="mb-6 text-sm text-accent uppercase">{t('footer.organization')}</h2>
+        <h5 class="mb-6 text-accent uppercase">{t('footer.organization')}</h5>
         <ul class="text-base-300">
           <li class="mb-4">
-            <a href="/nosotros" class="hover:underline">{t('footer.about')}</a>
+            <a href=`/${lang}/wwa` class="hover:underline">{t('footer.about')}</a>
           </li>
           <li>
-            <a href="/contacto" class="hover:underline">{t('footer.contact')}</a>
+            <a href=`/${lang}/contact` class="hover:underline">{t('footer.contact')}</a>
           </li>
         </ul>
       </div>
       <div>
-        <h2 class="mb-6 text-sm text-accent uppercase">{t('footer.legal')}</h2>
+        <h5 class="mb-6 text-accent uppercase">{t('footer.legal')}</h5>
         <ul class="text-base-300">
           <li class="mb-4">
-            <a href="/privacidad" class="hover:underline">{t('footer.privacy')}</a>
+            <a href="#" class="hover:underline">{t('footer.privacy')}</a>
           </li>
           <li>
-            <a href="/terminos" class="hover:underline">{t('footer.terms')}</a>
+            <a href="#" class="hover:underline">{t('footer.terms')}</a>
           </li>
         </ul>
       </div>
