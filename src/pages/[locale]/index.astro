@@ -2,7 +2,7 @@
 import "../../styles/global.css";
 import Header from '../../components/Header.astro';
 import Layout from '../../layouts/MainLayout.astro';
-import FeatureCard from '../../components/FeatureCard.astro';
+import PilesCard from '../../components/PilesCard.astro';
 
 import { getLangFromUrl, useTranslations } from '../../i18n/utils';
 
@@ -86,14 +86,14 @@ export async function getStaticPaths() {
 		<!-- FEATURES 1 Services -->
 		<div id="services" class="space-y-32">
 		  
-		  <FeatureCard
+		  <PilesCard
         title={t('features.creativity.title')}
         imageUrl="/images/creativity.png"
         imageAlt={t('features.creativity.title')}
         description={t('features.creativity.description')}
       />
     
-      <FeatureCard
+      <PilesCard
         title={t('features.connectivity.title')}
         imageUrl="/images/connectivity.png"
         imageAlt={t('features.connectivity.title')}
@@ -101,14 +101,14 @@ export async function getStaticPaths() {
         reverseLayout={true}
       />
     
-      <FeatureCard
+      <PilesCard
         title={t('features.collaboration.title')}
         imageUrl="/images/collaboration.png"
         imageAlt={t('features.collaboration.title')}
         description={t('features.collaboration.description')}
       />
     
-      <FeatureCard
+      <PilesCard
         title={t('features.capacity.title')}
         imageUrl="/images/capacity_building2.png"
         imageAlt={t('features.capacity.title')}

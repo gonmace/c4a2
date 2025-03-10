@@ -1,0 +1,87 @@
+---
+interface Props {
+  title: string;
+  imageUrl: string;
+  imageAlt: string;
+  description: string;
+  reverseLayout?: boolean;
+}
+
+const { title, imageUrl, imageAlt, description, reverseLayout = false } = Astro.props;
+---
+
+<div class="flex flex-wrap md:mb-0 mb-10 card-objetivo group">
+  <div class="md:w-1/2 p-8">
+    <div class="flex flex-col justify-center h-full w-3/4 lg:w-1/2 mx-auto transform transition-transform duration-500 group-hover:translate-x-4">
+      <h2 
+        class="uppercase cursor-pointer text-primary text-3xl lg:text-4xl font-light tracking-wider hover:text-secondary transition-colors duration-300"
+        data-toggle=`description-${title}`
+      >
+        {title}
+      </h2>
+      <div class="border-t-4 border-secondary w-24 my-3 transition-all duration-500 group-hover:w-32"></div>
+    </div>
+  </div>
+  
+  <div class={`relative w-full md:w-1/2 ${reverseLayout ? 'md:-order-1' : ''} overflow-hidden`}>
+    <div 
+      class="relative w-full h-120 cursor-pointer transform transition-all duration-500 hover:scale-[1.02] group"
+      data-toggle=`description-${title}`
+    >
+      <!-- Marco moderno -->
+      <div class="absolute inset-0 bg-gradient-to-r from-primary/20 to-secondary/20 rounded-2xl transform transition-all duration-500 group-hover:scale-105"></div>
+      
+      <!-- Sombra decorativa -->
+      <div class="absolute inset-0 shadow-lg rounded-2xl"></div>
+      
+      <!-- Overlay con gradiente -->
+      <div class={`absolute top-0 left-0 w-full h-full rounded-2xl bg-gradient-to-${reverseLayout ? 'l' : 'r'} from-primary/30 to-transparent z-10 transition-opacity duration-500 group-hover:opacity-70`}></div>
+      
+      <!-- Imagen -->
+      <img 
+        alt={imageAlt}
+        src={imageUrl}
+        width="600" 
+        height="480"
+        class="top-0 left-0 h-full w-full object-cover rounded-2xl transition-all duration-700 group-hover:scale-105"
+      />
+      
+      <!-- Contenedor del texto descriptivo -->
+      <div id=`description-${title}`
+        class="description-overlay absolute bottom-0 left-0 w-full bg-white/95 p-6 transform translate-y-full transition-transform duration-500 ease-in-out rounded-b-2xl backdrop-blur-sm">
+        <h3 class="text-2xl text-primary mb-4 font-medium">{title}</h3>
+        <p class="text-gray-700 leading-relaxed">{description}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .h-120 {
+    height: 30rem;
+  }
+</style>
+
+<script define:vars={{ title }}>
+  document.addEventListener('DOMContentLoaded', () => {
+    
+    const description = document.getElementById(`description-${title}`);
+    const toggleElements = document.querySelectorAll(`[data-toggle="description-${title}"]`);
+
+    toggleElements.forEach(element => {
+      element.addEventListener('click', () => {
+        console.log('click', title);
+        description.classList.toggle("translate-y-0");
+        description.classList.toggle("translate-y-full");
+
+      });
+    });
+  });
+</script> 
+
+
+
+
+
+
+
