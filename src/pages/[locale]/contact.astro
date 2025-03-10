@@ -28,8 +28,8 @@ export async function getStaticPaths() {
                         </label>
                         <input
                             type="text"
-                            name="nombre"
-                            id="nombre"
+                            name="name"
+                            id="name"
                             required
                             class="input w-full text-black"
                         />
@@ -53,8 +53,8 @@ export async function getStaticPaths() {
                             <span class="label-text">{t('contact.form.message')}</span>
                         </label>
                         <textarea
-                            name="mensaje"
-                            id="mensaje"
+                            name="message"
+                            id="message"
                             rows="4"
                             required
                             class="textarea h-32 w-full text-black"
@@ -75,3 +75,35 @@ export async function getStaticPaths() {
     </main>
 </MainLayout>
 
+<script>
+    const form = document.querySelector('form');
+    
+    form?.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      
+      const formData = new FormData(e.target as HTMLFormElement);
+      const data = Object.fromEntries(formData);
+      
+      try {
+        const response = await fetch('/api/send-email', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+  
+        if (response.ok) {
+          const mensaje = encodeURIComponent('¡Gracias por contactarnos! Nos comunicaremos contigo en breve.');
+          window.location.href = `/?message=${mensaje}`;
+        } else {
+          const errorData = await response.json();
+          alert(errorData.message || 'Hubo un error al enviar el mensaje');
+        }
+        
+      } catch (error) {
+        console.error('Error:', error);
+        alert('Hubo un error al enviar el mensaje. Por favor, intenta nuevamente.');
+      }
+    });
+  </script> 
