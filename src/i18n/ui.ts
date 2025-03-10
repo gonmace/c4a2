@@ -49,6 +49,16 @@ export const languages = {
       
       // Loading
       'loading': 'Loading',
+
+      // Contact Page
+      'contact.title': 'Contact Us',
+      'contact.description': 'Get in touch with us',
+      'contact.heading': 'Contact Us',
+      'contact.form.name': 'Full Name',
+      'contact.form.email': 'Email Address',
+      'contact.form.subject': 'Subject',
+      'contact.form.message': 'Message',
+      'contact.form.submit': 'Send Message',
     },
     es: {
       // Navegación
@@ -93,5 +103,15 @@ export const languages = {
       
       // Cargando
       'loading': 'Cargando',
+
+      // Contact Page
+      'contact.title': 'Contáctanos',
+      'contact.description': 'Ponte en contacto con nosotros',
+      'contact.heading': 'Contáctanos',
+      'contact.form.name': 'Nombre completo',
+      'contact.form.email': 'Correo electrónico',
+      'contact.form.subject': 'Asunto',
+      'contact.form.message': 'Mensaje',
+      'contact.form.submit': 'Enviar mensaje',
     }
   } as const;

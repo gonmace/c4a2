@@ -1,0 +1,77 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import Header from '../../components/Header.astro';
+import { getLangFromUrl, useTranslations } from '../../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+export async function getStaticPaths() {
+  return [
+    { params: { locale: 'en' } },
+    { params: { locale: 'es' } },
+  ];
+}
+---
+
+<MainLayout title={t('contact.title')} description={t('contact.description')}>
+    <Header class="mx-auto w-full z-50" textColorNav="primary" />
+    <main class="max-w-xl mx-auto p-6 mt-24">
+        <h1 class="text-4xl text-center mb-8 text-primary">{t('contact.heading')}</h1>
+        
+        <div class="sombra-x2 card w-full bg-base-200 shadow-xl text-primary">
+            <div class="card-body">
+                <form class="space-y-6" action="#" method="POST">
+                    <div class="form-control w-full">
+                        <label class="label">
+                            <span class="label-text">{t('contact.form.name')}</span>
+                        </label>
+                        <input
+                            type="text"
+                            name="nombre"
+                            id="nombre"
+                            required
+                            class="input w-full text-black"
+                        />
+                    </div>
+
+                    <div class="form-control w-full">
+                        <label class="label">
+                            <span class="label-text">{t('contact.form.email')}</span>
+                        </label>
+                        <input
+                            type="email"
+                            name="email"
+                            id="email"
+                            required
+                            class="input w-full text-black"
+                        />
+                    </div>
+
+                    <div class="form-control w-full">
+                        <label class="label">
+                            <span class="label-text">{t('contact.form.message')}</span>
+                        </label>
+                        <textarea
+                            name="mensaje"
+                            id="mensaje"
+                            rows="4"
+                            required
+                            class="textarea h-32 w-full text-black"
+                        ></textarea>
+                    </div>
+
+                    <div class="form-control mt-6">
+                        <button
+                            type="submit"
+                            class="btn btn-primary"
+                        >
+                            {t('contact.form.submit')}
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+</MainLayout>
+
