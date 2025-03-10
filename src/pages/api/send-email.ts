@@ -49,21 +49,30 @@ export const POST: APIRoute = async ({ request }) => {
         htmlContent: `
           <p><strong>Nombre:</strong> ${formData.name}</p>
           <p><strong>Email:</strong> ${formData.email}</p>
-          <p><strong>Mensaje adicional:</strong> ${formData.message || 'No se incluyó mensaje'}</p>
+          <p><strong>Mensaje:</strong> ${formData.message}</p>
         `
       })
     });
 
     if (!emailResponse.ok) {
-      console.error('Error de Brevo:', await emailResponse.text());
-      throw new Error('Error al enviar el email');
+      const errorText = await emailResponse.text();
+      console.error('Error de Brevo:', errorText);
+      return new Response(JSON.stringify({
+        message: "Error al enviar el email"
+      }), {
+        status: 500,
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      });
     }
 
-    const mensaje = encodeURIComponent('¡Gracias por contactarnos! Nos comunicaremos contigo en breve.');
-    return new Response(null, {
-      status: 303,
+    return new Response(JSON.stringify({
+      message: "Email enviado correctamente"
+    }), {
+      status: 200,
       headers: {
-        'Location': `/?message=${mensaje}`
+        'Content-Type': 'application/json'
       }
     });
 
